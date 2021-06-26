@@ -21,7 +21,7 @@ const Dashboard = () => {
         loggedInUser && (
             <Router>
                 <div className="flex">
-                    <div className={`${isHide?'block':'hidden'} sm:hidden absolute sm:relative bg-none sm:bg-green-800 sm:h-screen px-3 py-1 overflow-hidden`}>
+                    <div className={`${isHide?'block':'hidden'} sm:hidden absolute sm:relative bg-none sm:bg-green-800 sm:min-h-screen px-3 py-1 overflow-hidden`}>
                         <button onClick={() => setIsHide(false)} className="block md:hidden px-2 py-1 m-2 rounded-lg text-white bg-green-900 text-lg hover:bg-green-400 hover:text-black">
                             <FontAwesomeIcon icon={faBars} />
                         </button>

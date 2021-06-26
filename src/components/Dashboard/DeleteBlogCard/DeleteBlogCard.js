@@ -21,7 +21,7 @@ const DeleteBlogCard = ({blogData}) => {
     }
 
     return (
-        <div className={`${isdelete && 'hidden'} bg-gray-300 rounded-lg mx-8 sm:mx-0 my-7 overflow-hidden sm:flex items-center justify-between transform hover:shadow-xl hover:scale-105 duration-300`}>
+        <div className={`${isdelete?'hidden' : 'block'} bg-gray-300 rounded-lg mx-8 sm:mx-0 my-7 overflow-hidden sm:flex items-center justify-between transform hover:shadow-xl hover:scale-105 duration-300`}>
             <div className="sm:flex items-center">
                 <img className="w-full sm:w-1/6 rounded-t-xl sm:rounded-none" src={coverImg}/>
                 <h2 className="float-left sm:float-none mt-2 sm:mt-0 text-lg font-semibold px-4">{title}</h2>

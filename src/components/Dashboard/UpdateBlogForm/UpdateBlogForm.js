@@ -7,7 +7,9 @@ const UpdateBlogForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [imageUrl,setImageUrl]=useState('');
     const [imgUploadSuccess,setImgUploadSuccess]=useState(false);
+    const [updateData,setUpdateData] = useState({});
     let { id } = useParams();
+
     
     useEffect(()=>{
         fetch(`https://dailyblogsbdapi.herokuapp.com/blog/${id}`)
@@ -19,20 +21,26 @@ const UpdateBlogForm = () => {
         .catch(err=>alert(err));
     },[])
 
-    const onSubmit=data=>{
-        data.coverImg=imageUrl;
-        data._id=id;
-        if(data.coverImg){
+    const onSubmit=(data,e)=>{
+        setUpdateData({
+            _id:id,
+            coverImg:imageUrl || blogData.coverImg,
+            title: data?.title || blogData.title,
+            content: data?.content || blogData.content
+        })
+
+        if(updateData.coverImg){
             console.log(data);
             fetch('https://dailyblogsbdapi.herokuapp.com/updateblog',{
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
-                body:JSON.stringify(data)
+                body:JSON.stringify(updateData)
             })
             .then(res=>res.json())
             .then(result=>{
                 if(result){
                     alert('Blog Updated SuccessFully.');
+                    setBlogData(updateData);
                 }
             })
             .catch(err=>alert(err))
@@ -40,7 +48,6 @@ const UpdateBlogForm = () => {
             alert('Please Upload The Cover Image');
         }
     }
-
 
     const handleImageUpload=event=>{
         setImgUploadSuccess(true);

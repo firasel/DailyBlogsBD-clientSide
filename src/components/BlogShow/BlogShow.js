@@ -24,7 +24,7 @@ const BlogShow = () => {
                     <img className="w-10/12 sm:w-9/12 md:w-7/12 lg:w-6/12 m-auto mb-8 rounded-xl shadow-lg" src={blogData.coverImg} />
                     <div className="mx-2 sm:mx-10 md:mx-20 lg:mx-32">
                         <h2 className="text-xl md:text-3xl text-center font-semibold mb-5">{blogData.title}</h2>
-                        <p className="text-lg md:text-xl">{blogData.content}</p>
+                        <div className="text-lg whitespace-pre-wrap md:text-xl tracking-wider">{blogData.content}</div>
                     </div>
                 </div>
             </div>

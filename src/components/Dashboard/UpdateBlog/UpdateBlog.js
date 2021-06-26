@@ -9,7 +9,6 @@ const UpdateBlog = () => {
         .then(data=>setBlogsData(data))
         .catch(err=>console.log(err))
     },[])
-    console.log(blogsData);
     return (
         <div className="w-full float-right">
             <h2 className="text-center bg-gray-500 text-2xl text-white p-4">Update Any Blogs</h2>
